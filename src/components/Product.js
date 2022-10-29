@@ -5,6 +5,7 @@ import {
 } from "@mui/icons-material";
 import React from "react";
 import styled from "styled-components";
+import { mobile } from "../responsive";
 
 const Info = styled.div`
   opacity: 0;
@@ -18,14 +19,15 @@ const Info = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
+  ${mobile({ opacity: "1", height: "50px", bottom: "0", top: "auto" })}
 `;
 
 const Container = styled.div`
   flex: 1;
   margin: 5px;
   min-width: 250px;
-  overflow:hidden;
+  overflow: hidden;
   height: 350px;
   display: flex;
   align-items: center;
@@ -37,17 +39,10 @@ const Container = styled.div`
   }
 `;
 
-const Circle = styled.div`
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: #fff;
-  position: absolute;
-`;
 const Image = styled.img`
   height: 100%;
   z-index: 2;
-  object-fit:cover;
+  object-fit: cover;
 `;
 const Icon = styled.div`
   width: 40px;
@@ -59,7 +54,7 @@ const Icon = styled.div`
   justify-content: center;
   margin: 10px;
   transition: all 0.5s ease;
-  cursor:pointer;
+  cursor: pointer;
   &:hover {
     background-color: #fff;
     transform: scale(1.1);
@@ -69,7 +64,6 @@ const Icon = styled.div`
 export const Product = ({ item }) => {
   return (
     <Container>
-      {/* <Circle /> */}
       <Image src={require("../images/" + item.image)} />
       <Info>
         <Icon>
